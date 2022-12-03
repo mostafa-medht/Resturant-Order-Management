@@ -1,66 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Restaurant-Management project
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Restaurant Management project designed & developed to submit order with list of products consisting of ingredients has the following applied:-
 
-## About Laravel
+1. Add, show ingredient and get all ingredients.
+2. Charge ingredient if stock in low level.
+3. Add, show product and get all products.
+4. Add, show order and get all orders.
+5. Fire an event to update ingredient stock after order placed.
+6. Send an notification email if ingredient have low level.
+7. Apply service design architecture and use event & listeners design pattern.
+8. Applied SOLID principle for better clean architecture.
+9. Use phpunit testing to test all added feature.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Run the project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clone repository
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    ```
+        1.1- git clone https://github.com/mostafa-medht/Resturant-Order-Management.git
+        1.2- cd project-directory
+        1.3- composer install
+        1.4- npm install
+        1.5- cp .env.example .env
+        1.6- php artisan key:generate
+    ```
 
-## Learning Laravel
+2. Database
+   2.1 Create database in DBMS via this query
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    ```sql - mysql
+        create database `resturant-management`;
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+   2.3 Database Configuration in .env file in application root
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```
+        DB_DATABASE=resturant-management
+        DB_USERNAME=username
+        DB_PASSWORD=password
+        Put your database user after DB_USERNAME, and your user password after DB_PASSWORD
+    ```
 
-## Laravel Sponsors
+   2.4 Migrate & seed
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    ```
+        php artisan migrate
+        php artisan db:seed
 
-### Premium Partners
+        or
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+        php artisan migrate --seed
+    ```
+
+   2.5 Run the project
+
+    ```
+        php artisan serve
+    ```
+
+   2.6 Run queue service
+
+    ```
+         php artisan queue:work
+    ```
+   2.7 Run migration for unit testing with sqlite
+
+    ```
+         php artisan migrate --database=sqlite
+    ```
+---
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   [Mostafa Medhat](https://github.com/mostafa-medht)
 
-## Code of Conduct
+## When contributing to this repository, please first discuss the change you wish to make via issue.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Contributing Guidelines
 
-## Security Vulnerabilities
+1. **Create** a new issue discussing what changes you are going to make.
+2. **Fork** the repository to your own Github account.
+3. **Clone** the project to your own machine.
+4. **Create** a branch locally with a succinct but descriptive name.
+5. **Commit** Changes to the branch.
+6. **Push** changes to your fork.
+7. **Open** a Pull Request in
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Restaurant Management project Copyright © 2022 Mostafa Medht.
