@@ -1,4 +1,4 @@
-# Restaurant-Management project
+# Restaurant-Management Project
 
 Restaurant Management project designed & developed to submit order with list of products consisting of ingredients has the following applied:-
 
