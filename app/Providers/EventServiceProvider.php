@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\CheckIngredientStockAfterConsumedEvent;
+use App\Events\NewOrderPlacedEvent;
+use App\Listeners\SendChargeIngredientEmailListener;
+use App\Listeners\UpdateIngredientStockListener;
+use App\Listeners\UpdateNotifyUserWithIngredientLevelListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -15,9 +20,13 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
-        ],
+            NewOrderPlacedEvent::class => [
+                UpdateIngredientStockListener::class,
+            ],
+            CheckIngredientStockAfterConsumedEvent::class => [
+                SendChargeIngredientEmailListener::class,
+                UpdateNotifyUserWithIngredientLevelListener::class
+            ]
     ];
 
     /**
